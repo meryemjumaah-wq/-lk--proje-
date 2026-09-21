@@ -1,1 +1,33 @@
-<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Meryem'in Dünyası 💖</title><style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ffafcc,#ffc8dd,#cdb4db);font-family:sans-serif;text-align:center} .card{background:white;padding:30px;border-radius:30px;box-shadow:0 20px 40px rgba(0,0,0,0.15);max-width:320px} h1{color:#ff4d8d} .heart{font-size:60px;animation:beat 1s infinite;display:block} button{background:#ff4d8d;color:white;border:none;padding:12px 25px;border-radius:50px;font-size:16px;margin-top:15px} @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}</style></head><body><div class="card"><span class="heart">💖</span><h1>Merhaba!</h1><p>Bu benim ilk websitem!<br>Meryem tarafından yapıldı ✨</p><button onclick="alert('Seni seviyorum dünya! 💖')">Tıkla 💌</button></div></body></html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geri Sayım</title>
+<style>
+body{font-family:Arial;background:linear-gradient(135deg,#667eea,#764ba2);color:white;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;text-align:center}
+.kutu{background:rgba(0,0,0,0.3);padding:30px;border-radius:20px}
+#sayac{font-size:40px;font-weight:bold;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="kutu">
+<h1>🎉 Etkinliğe Kalan Süre</h1>
+<div id="sayac">Yükleniyor...</div>
+<p>Tarihi değiştirmek için kod içindeki tarihi değiştir!</p>
+</div>
+<script>
+var hedefTarih = new Date("Dec 31, 2026 00:00:00").getTime();
+setInterval(function(){
+var simdi = new Date().getTime();
+var fark = hedefTarih - simdi;
+var gun = Math.floor(fark/(1000*60*60*24));
+var saat = Math.floor((fark%(1000*60*60*24))/(1000*60*60));
+var dk = Math.floor((fark%(1000*60*60))/(1000*60));
+var sn = Math.floor((fark%(1000*60))/1000);
+document.getElementById("sayac").innerHTML = gun+" Gün "+saat+" Saat "+dk+" Dk "+sn+" Sn";
+if(fark<0){document.getElementById("sayac").innerHTML="Süre Doldu!"}
+},1000);
+</script>
+</body>
+</html>
